@@ -35,20 +35,28 @@ public class Board {
             } return false;
         }
 
-//    public boolean checkDiagonal() {
-//
-//    }
+    public boolean checkDiagonal(Character letter) {
+        for (int i = 0; i <3; i++) {
+            if (this.matrix[0][0] == letter && this.matrix [1][1] == letter && this.matrix[2][2] == letter) {
+                return true;
+            }
 
+        } return false;
+    }
+
+//    [0][0]  [0][1]  [0][2]
+//    [1][0]  [1][1]  [1][2]
+//    [2][0]  [2][1]  [2][2]
     public Boolean isInFavorOfO() {
         return checkRow('O') || checkColumn('O');
     }
 
     public Boolean isTie() {
-        return null;
+        return isInFavorOfO() == isInFavorOfX();
     }
 
     public String getWinner() {
-        return null;
+        return;
     }
 
 }
