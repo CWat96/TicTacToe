@@ -13,7 +13,7 @@ public class Board {
 
     public Boolean isInFavorOfX() {
 
-        return checkRow('X') || checkColumn('X');
+        return checkRow('X') || checkColumn('X') || checkDiagonals('X');
     }
 
 
@@ -35,20 +35,23 @@ public class Board {
             } return false;
         }
 
-    public boolean checkDiagonal(Character letter) {
-        for (int i = 0; i <3; i++) {
-            if (this.matrix[0][0] == letter && this.matrix [1][1] == letter && this.matrix[2][2] == letter) {
-                return true;
-            }
+    public boolean checkDiagonals(Character letter) {
+        if (this.matrix[0][0] == letter && this.matrix[1][1] == letter && this.matrix[2][2] == letter) {
+            return true;
 
-        } return false;
+        } else if (this.matrix[0][2] == letter && this.matrix [1][1] == letter && this.matrix[2][0] == letter) {
+            return true;
+        }
+        return false;
     }
+
+
 
 //    [0][0]  [0][1]  [0][2]
 //    [1][0]  [1][1]  [1][2]
 //    [2][0]  [2][1]  [2][2]
     public Boolean isInFavorOfO() {
-        return checkRow('O') || checkColumn('O');
+        return checkRow('O') || checkColumn('O') || checkDiagonals('O');
     }
 
     public Boolean isTie() {
