@@ -56,7 +56,12 @@ public class Board {
     }
 
     public String getWinner() {
-        return;
+        if (isInFavorOfO()) {
+            return "O";
+        } else if (isInFavorOfX())
+            return "X";
+        else
+        return "";
     }
 
 }
